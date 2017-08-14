@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+ {% block body %}
+<table class="table table-hover"><tr>
+        <th>Czynność</th><th>Cena</th><th>Opis</th><th>Formularz kontaktowy</th>
+    </tr>
+    {% for price in prices %}
+        <tr>
+            <td>{{ price.name }}</td><td>{{ price.price }}zł</td><td>{{ price.description }}</td>
+            {% if is_granted('ROLE_ADMIN') %}
+            <td><a class="btn btn-primary" href="{{ url('priceDelete', {'id' : price.id}) }}" >Usuń</a></td>
+            <td><a class="btn btn-primary" href="{{ url('priceAdd') }}" >Dodaj</a></td>
+            {% endif %}
+            <td><a class="btn btn-primary" href="{{ url('contact') }}" >Kontakt</a></td>
+        </tr>
+    {% endfor %}
+</table>
+ {% endblock %}

@@ -1,0 +1,22 @@
+.form{
+    margin-top: 100px;
+}
+.form-control{
+    padding: 10px;
+}
+.required{
+    padding: 10px;
+}
+.submit-fr{
+    margin-top: 30px;
+}
+.pad{
+    padding: 20px;
+}
+.red{
+    color: red;
+}
+a{
+    text-decoration: none;
+    color: black;
+}

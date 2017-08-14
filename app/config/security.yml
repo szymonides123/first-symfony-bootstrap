@@ -1,0 +1,49 @@
+# To get started with security, check out the documentation:
+# https://symfony.com/doc/current/security.html
+security:
+
+    # https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
+    providers:
+        in_memory:
+            memory: 
+                users:
+                    admin:
+                        password: $2y$12$eSPFpuss39lAPGmARFNGL.SDVB0WXIc0PK9r6DrV8jus99YnqIhG6
+                        roles: 'ROLE_ADMIN'
+
+    firewalls:
+        # disables authentication for assets and the profiler, adapt it according to your needs
+        
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+            
+#        secured_area:
+#            logout:
+#                path:   /logout
+#                target: /    
+#        default:
+#            pattern: ^/
+#            anonymous: ~ 
+            
+        main:
+            anonymous: ~
+            http_basic: ~
+        
+        
+    
+            
+    access_control:
+            - { path: prices/add, roles: ROLE_ADMIN }
+            - { path: prices/delete, roles: ROLE_ADMIN }
+    
+    encoders:
+        Symfony\Component\Security\Core\User\User: 
+            algorithm: bcrypt
+            cost: 12
+    
+            # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
+            #http_basic: ~
+
+            # https://symfony.com/doc/current/security/form_login_setup.html
+            #form_login: ~

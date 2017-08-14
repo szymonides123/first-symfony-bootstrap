@@ -1,0 +1,8 @@
+{% extends 'base.html.twig' %}
+
+ {% block body %}
+     <h1>Planujesz remont? Skontaktuj się z nami!</h1>
+     {{ form_start(form,{'attr': {'class': 'form'}}) }}
+     {{ form_widget(form, {'attr': {'class': 'form-group'}}) }}
+     {{ form_end(form) }}
+ {% endblock %}
